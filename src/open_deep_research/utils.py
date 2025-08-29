@@ -899,14 +899,18 @@ def get_api_key_for_model(model_name: str, config: RunnableConfig):
             return None
         if model_name.startswith("openai:"):
             return api_keys.get("OPENAI_API_KEY")
+        elif model_name.startswith("azure_openai:"):
+            return api_keys.get("AZURE_AI_API_KEY")
         elif model_name.startswith("anthropic:"):
             return api_keys.get("ANTHROPIC_API_KEY")
         elif model_name.startswith("google"):
             return api_keys.get("GOOGLE_API_KEY")
         return None
     else:
-        if model_name.startswith("openai:"): 
+        if model_name.startswith("openai:"):
             return os.getenv("OPENAI_API_KEY")
+        elif model_name.startswith("azure_openai:"):
+            return os.getenv("AZURE_AI_API_KEY")
         elif model_name.startswith("anthropic:"):
             return os.getenv("ANTHROPIC_API_KEY")
         elif model_name.startswith("google"):

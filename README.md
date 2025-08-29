@@ -44,6 +44,7 @@ cp .env.example .env
 
 ```bash
 # Install dependencies and start the LangGraph server
+.venv\Scripts\activate
 uvx --refresh --from "langgraph-cli[inmem]" --with-editable . --python 3.11 langgraph dev --allow-blocking
 ```
 
